@@ -15,5 +15,6 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
-.project
+.sublime-*
+ToDo.md
 config/initializers/secret_token.rb
