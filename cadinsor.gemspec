@@ -7,11 +7,11 @@ require "cadinsor/version"
 Gem::Specification.new do |s|
   s.name        = "cadinsor"
   s.version     = Cadinsor::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Cadinsor."
-  s.description = "TODO: Description of Cadinsor."
+  s.authors     = ["lewstherin"]
+  s.email       = ["r@lewstherin.com"]
+  s.homepage    = "www.lewstherin.com"
+  s.summary     = "Provide OAuth2 like authentication for your APIs"
+  s.description = "Cadinsor provides OAuth like authentication to validate requests from your client apps to your backend Rails application."
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
