@@ -7,7 +7,7 @@ module Cadinsor
       api_key = target_params[Cadinsor::Engine.config.api_key_param_name.to_s]
       signature = target_params[Cadinsor::Engine.config.request_signature_param_name.to_s]
       client_app_id = target_params[Cadinsor::Engine.config.client_app_id_param_name.to_s]
-      cadinsor_validate_key(api_key) if options[:ignore_key] != true
+      cadinsor_validate_key(api_key) if options[:ignore_api_key_check] != true
       cadinsor_validate_app(client_app_id)
       cadinsor_validate_signature(target_params, signature, Cadinsor::Engine.config.client_app_id_param_name.to_s, Cadinsor::Engine.config.request_signature_param_name.to_s)
     end
