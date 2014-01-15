@@ -10,7 +10,7 @@ class CadinsorTestsController < ApplicationController
   end
 
   def inside_method_check
-    protect_with_cadinsor()
+    check_request_with_cadinsor
     respond_to do  |format|
       format.json {render :action => 'do_not_check', :format => 'json'}
       format.xml {render :action => 'do_not_check', :format => 'xml'}
