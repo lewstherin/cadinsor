@@ -8,6 +8,9 @@ capybara-*.html
 /vendor/bundle
 /log/*
 /test/dummy/log/*
+/test/dummy/db/*
+/test/dummy/.bundle
+/test/dummy/initializers/secret_token.rb
 /tmp/*
 /db/*.sqlite3
 /public/system/*

@@ -1,0 +1,7 @@
+Description:
+  This generator will create an initializer called cadinsor.rb in config/initializers, which is necessary for running the Cadinsor gem.
+  Please visit the github page: http://github.com/lewstherin/cadinsor for more details on the various configuration options etc.
+
+  Do not forget to run the migrations that are required for running cadinsor.
+
+
