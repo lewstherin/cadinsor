@@ -34,8 +34,14 @@ Every request that is authenticated through Cadinsor must possess among it's par
     + Assuming your engine is mounted at /cadinsor, you may get a new key by visiting <root_url>/cadinsor/api_keys/create.json
     + Assuming your engine is mounted at /cadinsor, you may view the status of your key by visiting <root_url>/cadinsor/api_keys/show.json?key=<key value here\>
 
+You can clear expired keys from the db in the background or foreground by using rake tasks:
+
+    rake cadinsor:api_key:clean_background  # Remove all expired keys from the db without any confirmation, for background tasks like cron jobs only
+    rake cadinsor:api_key:clean_manual      # Interactive task to remove expired keys from the db, please use clean_background if you want to run this in a non-interactive mode
+
+
 ### Building the request signature at the client side
-All the request parameters are sortd in alphabetical order and a request string is obtained by concatenating the corresponding values of these paremeters. To this string, the app secret and an SHA2 (256 bit) hash is computed of this string. This signature is also sent with every request to the server.
+All the request parameters are sorted in alphabetical order and a request string is obtained by concatenating the corresponding values of these parameters. To this string, the app secret and an SHA2 (256 bit) hash is computed of this string. This signature is also sent with every request to the server.
 Ex: Consider a simple login request with the following parameters:
 
   1. user_name: lewstherin
@@ -52,7 +58,6 @@ Ex: If your input params is as follows, cadinsor computes the signature of the f
     params = {:key=>"aslkaslkas", :signature=>"askjaskdskjdasklfj2103", :user=>{:id=>1, :email=>"a@b.com"}, :post=>{:title=>"rails_layout", :author=>"lewstherin", :comments=>{:author=>"Lews Therin", :date=>"14012014", :desc=>"This is a dummy comment"}}}
 
     flattened_hash = {"key"=>"aslkaslkas", "signature"=>"askjaskdskjdasklfj2103", "user_id"=>1, "user_email"=>"a@b.com", "post_title"=>"rails_layout", "post_author"=>"lewstherin", "post_comments_author"=>"Lews Therin", "post_comments_date"=>"14012014", "post_comments_desc"=>"This is a dummy comment"}
-
 
 ### Validating your requests at the controller side
 
@@ -89,11 +94,11 @@ You can validate your requests by the either placing a call to the **check_reque
 
   1. If you do not want the cadinsor to check the params hash, but would like to check some other hash, you can do that by calling the method as follows:
 
-      check_request_with_cadinsor(target_params: params[user])
+        check_request_with_cadinsor(target_params: params[user])
 
   2. You can disable key checking altogether by:
 
-      check_request_with_cadinsor(ignore_api_key_check: true)
+        check_request_with_cadinsor(ignore_api_key_check: true)
 
 ## Action Items
 
