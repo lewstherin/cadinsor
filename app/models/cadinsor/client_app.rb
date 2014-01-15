@@ -5,7 +5,7 @@ module Cadinsor
 
     def generate_secret!
       self.secret = SecureRandom.urlsafe_base64(32)
-      generate_secret! if App.find_by_secret(self.secret)
+      generate_secret! if ClientApp.find_by_secret(self.secret)
       self
     end
 
