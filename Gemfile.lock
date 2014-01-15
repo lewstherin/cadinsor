@@ -88,4 +88,5 @@ PLATFORMS
 
 DEPENDENCIES
   cadinsor!
+  rabl
   sqlite3

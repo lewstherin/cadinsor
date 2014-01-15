@@ -11,7 +11,8 @@ module Cadinsor
     end
 
     def expired?
-      self.created_at < Cadinsor::Engine.config.key_expiry_in_mins.to_i.minutes.ago
+      return true if self.created_at < Cadinsor::Engine.config.key_expiry_time_in_mins.to_i.minutes.ago
+      false
     end
 
   end

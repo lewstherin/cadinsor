@@ -5,6 +5,6 @@ class CreateCadinsorApiKeys < ActiveRecord::Migration
       t.integer :client_app_id
       t.timestamps
     end
-    add_index :api_keys, :value
+    add_index :cadinsor_api_keys, :key
   end
 end

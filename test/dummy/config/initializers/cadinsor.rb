@@ -1,4 +1,4 @@
-# Cadinsor Initializer - Generated on January 15, 2014 17:35
+# Cadinsor Initializer - Generated on January 15, 2014 23:05
 # Please visit github.com/lewstherin/cadinsor for more information on this initializer.
 
 require 'cadinsor'

@@ -11,6 +11,7 @@ capybara-*.html
 /test/dummy/db/*
 /test/dummy/.bundle
 /test/dummy/initializers/secret_token.rb
+/test/dummy/app/assets/
 /tmp/*
 /db/*.sqlite3
 /public/system/*

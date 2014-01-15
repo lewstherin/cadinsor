@@ -4,5 +4,7 @@ if !@key
   node(:errors) {"No valid key found with id: " + params[:id].to_s}
 else
   node(:status) {"Success."}
-  attribute :value => :key
+  attribute :key
+  attribute :created_at
+  node(:expired) {|key| key.expired?}
 end

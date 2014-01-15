@@ -9,8 +9,8 @@ module Cadinsor
       @key.generate_key!
       if @key.save
         respond_to do |format|
-          format.json {redirect_to :action => 'show', :format => 'json', :id => @key.id}
-          format.xml {redirect_to :action => 'show', :format => 'xml', :id => @key.id}
+          format.json {redirect_to :action => 'show', :format => 'json', :key => @key.key}
+          format.xml {redirect_to :action => 'show', :format => 'xml', :key => @key.key}
         end
       else
         respond_to do |format|
@@ -21,7 +21,9 @@ module Cadinsor
     end
 
     def show
-      @key = ApiKey.find_by_id(params[:id])
+      if params[:key]
+        @key = ApiKey.find_by_key(params[:key])
+      end
     end
   end
 end

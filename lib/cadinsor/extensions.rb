@@ -33,10 +33,10 @@ module Cadinsor
     end
 
     def cadinsor_rescue(message)
-      @error_message = message
+      @cadinsor_error_message = message
       respond_to do |format|
-        format.json {render action: :cadinsor_error_response, controller: :application, format: 'json'}
-        format.xml {render action: :cadinsor_error_response, controller: :application, format: 'xml'}
+        format.json {render "cadinsor/application/cadinsor_error_response", format: 'json'}
+        format.xml {render "/cadinsor/application/cadinsor_error_response", format: 'xml'}
       end
     end
 
