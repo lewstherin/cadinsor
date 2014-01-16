@@ -1,6 +1,12 @@
 class Cadinsor::InstallGenerator < Rails::Generators::Base
   source_root File.expand_path('../templates', __FILE__)
   def install
+    puts "I need rabl to work. Adding rabl to your gem file"
+    gsub_file "Gemfile", /gem "rabl.*$/, ""
+    append_to_file "Gemfile", "\ngem \"rabl\", \"~> 0.9\""
+    Bundler.with_clean_env do
+      run "bundle install"
+    end
     puts "Creating an initializer for Cadinsor..."
     template "cadinsor_initializer.erb", "config/initializers/cadinsor.rb"
     puts "Your initializer has been successfully created at config/initializers/cadinsor.rb."
@@ -12,7 +18,7 @@ class Cadinsor::InstallGenerator < Rails::Generators::Base
     namespace = gets.chomp
     namespace = "cadinsor" if namespace.to_s == ""
     gsub_file "config/routes.rb", /mount Cadinsor::Engine(.*)/, ''
-    insert_into_file "config/routes.rb", "\tmount Cadinsor::Engine => '/#{namespace}'", :after => "Rails.application.routes.draw do\n"
+    insert_into_file "config/routes.rb", "\tmount Cadinsor::Engine => '/#{namespace}'", :after => ".routes.draw do\n"
     puts "I have tried to add an entry into routes.rb to mount the engine. Printing contents of config/routes.rb"
     system("cat config/routes.rb | more")
     puts "Please verify that an entry exists. If not, create one like shown below."

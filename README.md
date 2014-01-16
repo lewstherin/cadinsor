@@ -1,4 +1,7 @@
-Cadinsor 0.1.0
+[![Gem Version](https://badge.fury.io/rb/cadinsor.png)](http://badge.fury.io/rb/cadinsor)
+[![Dependency Status](https://gemnasium.com/lewstherin/cadinsor.png)](https://gemnasium.com/lewstherin/cadinsor)
+[![Code Climate](https://codeclimate.com/github/lewstherin/cadinsor.png)](https://codeclimate.com/github/lewstherin/cadinsor)
+Cadinsor
 ===
 ## What is Cadinsor?
 Cadinsor provides OAuth like authentication to validate requests from your client apps to your backend Rails application. It can be easily mounted onto any application as it is a Rails engine. Currently supports both JSON and XML formats.

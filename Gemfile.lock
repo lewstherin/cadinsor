@@ -2,8 +2,8 @@ PATH
   remote: .
   specs:
     cadinsor (0.1.0)
-      rabl (~> 0.9.3)
-      rails (~> 4.0.2)
+      rabl (~> 0.9)
+      rails (~> 4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -88,5 +88,4 @@ PLATFORMS
 
 DEPENDENCIES
   cadinsor!
-  rabl
-  sqlite3
+  sqlite3 (~> 1.3)
