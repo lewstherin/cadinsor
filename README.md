@@ -93,7 +93,7 @@ You can validate your requests by the either placing a call to the **check_reque
       end
     end
 
-### Options while calling the *check_request_with_cadinsor_method*
+### Options while calling the *check_request_with_cadinsor* method
 
   1. If you do not want the cadinsor to check the params hash, but would like to check some other hash, you can do that by calling the method as follows:
 
