@@ -4,7 +4,10 @@
 Cadinsor
 ===
 ## What is Cadinsor?
-Cadinsor provides OAuth like authentication to validate requests from your client apps to your backend Rails application. It can be easily mounted onto any application as it is a Rails engine. Currently supports both JSON and XML formats.
+Cadinsor provides OAuth like authentication to validate requests from your client apps to your backend Rails application. It can be easily mounted onto any application as it is a Rails engine. It currently supports both JSON and XML formats.
+
+## Why Cadinsor?
+I was building a mobile app on top of my existing rails app and I could find no easy/ standard way of securing the requests to my APIs. This is probably one reason why there are a lot of mobile apps that rely on obscurity as a means of security or really don't bother about security at all. (If you have doubts, just take a visit to your router while using your favorite mobile apps). I think that for most of these problems, there is an easy fix and that is what I've tried to provide here.
 
 ## Setup Instructions
   Add the cadinsor gem your gem file and then run the install generator. The installer will ask you would like to mount the engine.
@@ -105,8 +108,15 @@ You can validate your requests by the either placing a call to the **check_reque
 
 ## Action Items
 
-  1. Add tests
-  2. Improve this documentation
+  1. **Add tests:** While it feels very embarrassing to put something out there without tests, I have some time on my hands and I am going to read through [Everyday Rails Testing with Rspec](https://leanpub.com/everydayrailsrspec) during the next couple of weeks to a month. This is something that I've wanted to do for a long time and I think Cadinsor will make a very good candidate to implement the things I learn from the book. So do bear with me for a little while.
+  2. **Improve this documentation:** I am not exactly sure which parts need more clarity and I would definitely like some feedback. However, this README was quickly put together and I am sure I can do a better job. I will revisit this in an upcoming commit.
+
+### Bugs/ Known Issues/ Enhancements
+  1. Add a disable apps feature - Requires a change in the db. Should be careful with this.
+  2. Convert the flattened params hash to a hash with indifferent access. This should remove a lot of code ugliness (.to_s etc).
+  3. Delete a key after validation of request. While keys expire automatically and the default window is short enough, it is still not wise to leave it open. Should probably be configurable because people might be interested to see which app used a particular key and for what purpose.
+  4. Logs???
+  5. Rabl dependency - Remove the rabl initializer.
 
 ## License
 [MIT License](http://opensource.org/licenses/MIT)
