@@ -120,3 +120,6 @@ You can validate your requests by the either placing a call to the **check_reque
 
 ## License
 [MIT License](http://opensource.org/licenses/MIT)
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/lewstherin/cadinsor/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
