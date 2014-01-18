@@ -116,7 +116,7 @@ You can validate your requests by the either placing a call to the **check_reque
   2. Convert the flattened params hash to a hash with indifferent access. This should remove a lot of code ugliness (.to_s etc).
   3. Delete a key after validation of request. While keys expire automatically and the default window is short enough, it is still not wise to leave it open. Should probably be configurable because people might be interested to see which app used a particular key and for what purpose.
   4. Logs???
-  5. Rabl dependency - Remove the rabl initializer.
+  5. Rabl dependency - Remove the rabl initializer. It's not serving any purpose.
 
 ## License
 [MIT License](http://opensource.org/licenses/MIT)
