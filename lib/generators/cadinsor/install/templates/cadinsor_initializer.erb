@@ -15,6 +15,8 @@ require 'cadinsor'
   # # Set the value of the field name of the request signature in params.
   # # If set to :signature, Cadinsor will look for the request signature in params[:signature]
   # Cadinsor::Engine.config.request_signature_param_name = :signature
+  # # Cadinsor excludes the params set in exclude_params from including in request params hash
+  # Cadinsor::Engine.config.exclude_params = ["controller", "action", "format", "file"]
 
 # Include Cadinsor methods in the application controller
 

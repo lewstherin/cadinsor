@@ -49,8 +49,9 @@ module Cadinsor
     def cadinsor_validate_signature(params, signature, app_id_param_name, signature_param_name)
       raise Cadinsor::Extensions::RequestError.new "Invalid Request. Request signature is not present." if signature.to_s == ""
       req_string = ""
+      excluded_param_keys = Cadinsor::Engine.config.exclude_params << signature_param_name.to_s 
       params.keys.sort.each do |key|
-        req_string = req_string + params[key] unless [signature_param_name.to_s, "controller", "action", "format"].include? key.to_s
+        req_string = req_string + params[key] unless excluded_param_keys.include? key.to_s
       end
       req_string = req_string + Cadinsor::ClientApp.find_by_id(params[app_id_param_name.to_s]).secret
       request_hash = Digest::SHA2.hexdigest(req_string)
